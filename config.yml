@@ -1,0 +1,41 @@
+simulation:
+  n_days: 365
+  seed: 42
+
+model:
+  n_agents: 500
+
+  # Network (Barabási–Albert scale-free)
+  sf_m: 3
+
+  # Initial states
+  initial_criminal_share: 0.05
+  initial_at_risk_share: 0.20
+
+  # Behavior / transitions
+  peer_influence_weight: 0.35
+  risk_threshold: 0.30
+  crime_base_rate: 0.05
+
+  # Institutions
+  coercive_capacity: 0.04          # fraction of population targeted per day
+  forensic_capacity: 0.55          # targeting/evidence quality proxy
+  detention_days_mean: 45
+  conviction_base_prob: 0.60
+  prison_sentence_days_mean: 220
+
+  # Criminogenic effects
+  detention_stigma_increment: 0.10
+  detention_criminal_capital_increment: 0.15
+  prison_criminal_capital_increment: 0.20
+
+  # Congestion (optional)
+  congestion_strength: 0.25
+
+  # v0.2: Evidence and rewiring
+  evidence_window_days: 30
+  rewiring:
+    enabled: true
+    drop_lawful_edge_prob: 0.20     # when detained/prison: chance to drop ties to lawful neighbors
+    add_criminal_edge_prob: 0.25    # when detained/prison: chance to add ties to criminal nodes
+    max_new_edges_per_event: 3      # limit rewiring intensity per detention/prison event

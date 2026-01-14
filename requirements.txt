@@ -1,0 +1,5 @@
+mesa==2.3.2
+networkx==3.2
+numpy==1.26.4
+pandas==2.2.0
+pyyaml==6.0
